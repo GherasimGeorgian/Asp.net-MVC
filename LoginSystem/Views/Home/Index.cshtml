@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    if (Session["userID"] == null) // In cazul in care dorim sa accesam pagina de Home si nu sutem logati vom fi redirectionati spre pagina de logare
+    {
+
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+     <div>
+         <h1>Dashboard</h1>
+         <h3>Bine ai venit, @Session["UserName"].ToString()</h3>
+         <a href="@Url.Action("LogOutFunction","Login")">LogOut</a>
+     </div>
+
+</body>
+</html>
+
