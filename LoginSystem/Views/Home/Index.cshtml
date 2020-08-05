@@ -7,19 +7,36 @@
         Response.Redirect("~/Login/Index");
     }
 }
-
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+    </script>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
-<body>
-     <div>
-         <h1>Dashboard</h1>
-         <h3>Bine ai venit, @Session["UserName"].ToString()</h3>
-         <a href="@Url.Action("LogOutFunction","Login")">LogOut</a>
-     </div>
+<body onload="startTime()">
+    <div>
+        <h1>Dashboard</h1>
+        <h3>Bine ai venit, @Session["UserName"].ToString()</h3>
+        <div id="txt"></div>
+        <a href="@Url.Action("LogOutFunction","Login")">LogOut</a>
+    </div>
 
 </body>
 </html>
