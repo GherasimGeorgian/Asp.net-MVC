@@ -10,7 +10,7 @@ namespace LoginSystem.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        public ActionResult Index() // pagina web
+        public ActionResult Index() 
         {
             return View();
         }

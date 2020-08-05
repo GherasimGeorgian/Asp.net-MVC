@@ -1,43 +1,71 @@
-﻿
+﻿@model LoginSystem.Models.Stock
+
 @{
     ViewBag.Title = "Index";
-    if (Session["userID"] == null) // In cazul in care dorim sa accesam pagina de Home si nu sutem logati vom fi redirectionati spre pagina de logare
+    if (Session["userID"] == null) // In cazul in care dorim sa accesam pagina de Home si nu suntem logati vom fi redirectionati spre pagina de logare
     {
 
         Response.Redirect("~/Login/Index");
     }
 }
+
 <script>
-function startTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML =
-  h + ":" + m + ":" + s;
-  var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-    </script>
+    function startTime() {
+        
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+            h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Add Stock</title>
 </head>
 <body onload="startTime()">
+    
     <div>
         <h1>Dashboard</h1>
         <h3>Bine ai venit, @Session["UserName"].ToString()</h3>
         <div id="txt"></div>
         <a href="@Url.Action("LogOutFunction","Login")">LogOut</a>
-    </div>
 
+        @using (Html.BeginForm("AddOrEdit", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline">Add stock</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.IdProduct)</td>
+
+                    <td>@Html.DropDownListFor(model => model.IdProduct, new SelectList(Model.ProductCollection, "IdProduct", "ProductName"), "Select")</td>
+
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Count)</td>
+                    <td>@Html.EditorFor(model => model.Count)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="name" value="Submit"></td>
+                </tr>
+            </table>
+        }
+        </div>
+    
 </body>
 </html>
 
