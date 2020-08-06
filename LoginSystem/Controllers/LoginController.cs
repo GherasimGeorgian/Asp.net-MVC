@@ -41,5 +41,10 @@ namespace LoginSystem.Controllers
             return RedirectToAction("Index","Login");
 
         }
+        [HttpPost]
+        public ActionResult NewAccount()
+        {
+            return RedirectToAction("AddOrEdit", "CreateAcc");
+        }
     }
 }

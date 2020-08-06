@@ -30,5 +30,11 @@ namespace LoginSystem.Models
         public string Password { get; set; }
 
         public string LoginErrorMessage { get; set; }
+
+        [Required(ErrorMessage = "This field is required.")] // validator
+        [DataType(DataType.Password)] // se afiseaza format parola
+        [DisplayName("Confirm Password")]
+        [Compare("Password")] // compara cu parola
+        public string ConfirmPassword { get; set; }
     }
 }

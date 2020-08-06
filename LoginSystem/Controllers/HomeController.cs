@@ -12,10 +12,7 @@ namespace LoginSystem.Controllers
         public ActionResult Index() // Creeam un View pentru Homecontroller, click stanga pe Index() si  AddView
         {
             Stock stockmodel = new Stock();
-            //stockmodel.ProductCollection = new List<Product>()
-             //  {
-             //      new Product(){ IdProduct =1, ProductName="Computera"},
-            //   };
+            
             using (ProductDataBaseEntities db = new ProductDataBaseEntities())
             {
              stockmodel.ProductCollection = db.Products.ToList<Product>();
