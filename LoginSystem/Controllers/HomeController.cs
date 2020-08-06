@@ -19,6 +19,7 @@ namespace LoginSystem.Controllers
             }
             return View(stockmodel);
         }
-       
+      
+
     }
 }

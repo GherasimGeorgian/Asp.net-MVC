@@ -31,6 +31,13 @@
     body {
         background-image: url('../../blue-gradient.jpg');
     }
+    #dropdown-div {
+        position: absolute;
+        left: 40%;
+        top: 15%;
+        border: 1px solid #ccc;
+        padding: 10px 10px;
+    }
 </style>
 <!DOCTYPE html>
 <html>
@@ -41,36 +48,49 @@
 <body onload="startTime()">
     
     <div>
-        <h1>Dashboard</h1>
-        <h3>Bine ai venit, @Session["UserName"].ToString()</h3>
-        <div id="txt"></div>
-        <a href="@Url.Action("LogOutFunction","Login")">LogOut</a>
+        <h1 style="color:white">Dashboard</h1>
+        <h3 style="color:white">Bine ai venit, @Session["UserName"].ToString()</h3>
+
+        <div id="txt" style="color:white"></div>
 
         @using (Html.BeginForm("AddOrEdit", "Home", FormMethod.Post))
-        {
-            <table>
-                <tr>
-                    <td></td>
-                    <td style="text-decoration:underline">Add stock</td>
-                </tr>
-                <tr>
-                    <td>@Html.DisplayNameFor(model => model.IdProduct)</td>
+        {<div id="dropdown-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td style="text-decoration:underline;color:white">Add stock</td>
+                    </tr>
+                    <tr>
+                        <td style="color:white">@Html.DisplayNameFor(model => model.IdProduct)</td>
 
-                    <td>@Html.DropDownListFor(model => model.IdProduct, new SelectList(Model.ProductCollection, "IdProduct", "ProductName"), "Select")</td>
+                        <td>@Html.DropDownListFor(model => model.IdProduct, new SelectList(Model.ProductCollection, "IdProduct", "ProductName"), "Select")</td>
 
-                </tr>
-                <tr>
-                    <td>@Html.DisplayNameFor(model => model.Count)</td>
-                    <td>@Html.EditorFor(model => model.Count)</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" name="name" value="Submit"></td>
-                </tr>
-            </table>
+                    </tr>
+                    <tr>
+                        <td style="color:white">@Html.DisplayNameFor(model => model.Count)</td>
+                        <td>@Html.EditorFor(model => model.Count)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="name" value="Submit"></td>
+                    </tr>
+
+                </table>
+            </div>
         }
-        </div>
-    
+        <table>
+            <tr>
+                <td></td>
+                <td><a href="@Url.Action("Index","Customer")">Customer Page</a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>  <a href="@Url.Action("LogOutFunction","Login")">LogOut</a></td>
+            </tr>
+
+        </table>
+    </div>
+
 </body>
 </html>
 

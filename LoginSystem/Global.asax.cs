@@ -13,6 +13,9 @@ namespace LoginSystem
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MvcHandler.DisableMvcResponseHeader = true;
         }
+
+       
     }
 }
