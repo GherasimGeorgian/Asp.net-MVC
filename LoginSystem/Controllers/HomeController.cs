@@ -26,7 +26,7 @@ namespace LoginSystem.Controllers
             }
             mainModel.stock = stockmodel;
             mainModel.user = userModel;
-
+           
             return View(mainModel);
         }
         [HttpPost]
@@ -62,6 +62,7 @@ namespace LoginSystem.Controllers
                   db.SaveChanges();       
               }
               ModelState.Clear();
+            Session["ImagePath"] = mainModel.user.ImagePath;
             return View("Index", mainModel);
         }
 

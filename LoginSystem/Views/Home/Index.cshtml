@@ -99,11 +99,11 @@
 
         @using (Html.BeginForm("AddImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
+            
 
-           
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <img src="@Url.Content(Session["ImagePath"].ToString())" width="140" height="130" />
+
 
                     @* Setam atributele modelului *@
                     @{Model.user.UserID = ((int)Session["UserID"]);} @* Only do this here if you did NOT do it in the controller *@
@@ -112,6 +112,10 @@
                     @{Model.user.UserName = Session["UserName"].ToString();} @* Only do this here if you did NOT do it in the controller *@
                     @Html.HiddenFor(m => m.user.UserName) @* This will make it so that Attribute = "whatever" when the page submits to the controller *@
 
+                    @{Model.user.ImagePath = Session["ImagePath"].ToString();} @* Only do this here if you did NOT do it in the controller *@
+                    @Html.HiddenFor(m => m.user.ImagePath) @* This will make it so that Attribute = "whatever" when the page submits to the controller *@
+
+                    <img src="@Url.Content(Model.user.ImagePath)" width="140" height="130" />
                     <input type="file" name="file" id="file" riquired />
                 </div>
             </div>
