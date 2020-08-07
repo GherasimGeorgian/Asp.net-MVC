@@ -14,6 +14,13 @@ namespace LoginSystem.Models
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    public class MainPageModel
+    {
+        public Stock stock { get; set; }
+        public User user { get; set; }
+    }
+
+
     public partial class Stock
     {
         public int IdStock { get; set; }

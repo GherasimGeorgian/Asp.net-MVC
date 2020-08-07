@@ -17,6 +17,7 @@ namespace LoginSystem.Controllers
         [HttpPost]
         public ActionResult Autherize(LoginSystem.Models.User userModel) 
         { 
+
             using (LoginDataBaseEntities db = new LoginDataBaseEntities()) {
                 var userDetails = db.Users.Where(x => x.UserName == userModel.UserName && x.Password == userModel.Password).FirstOrDefault();
                 if (userDetails == null)
@@ -29,6 +30,7 @@ namespace LoginSystem.Controllers
                 {
                     Session["UserID"] = userDetails.UserID;
                     Session["UserName"] = userDetails.UserName;
+                    Session["ImagePath"] = userDetails.ImagePath;
                     return RedirectToAction("Index","Home");   // localhos/Home/Index  !!!! Trebuie sa creeam HomeControler ca sa functioneze!
                 }
             }

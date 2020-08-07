@@ -11,13 +11,35 @@ namespace LoginSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel; // Pentru a folosi DisplayName,
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
     public partial class User
     {
         public int UserID { get; set; }
+
+
+        [DisplayName("User Name")] // in Index se afiseaza "User Name" in loc de "UserName"
+        [Required(ErrorMessage="This field is required.")]
+
         public string UserName { get; set; }
+
+
+        [DataType(DataType.Password)] // se afiseaza format parola
+        [Required(ErrorMessage="This field is required.")] // validator
         public string Password { get; set; }
 
+        public string LoginErrorMessage { get; set; }
+
+        
+        [Required(ErrorMessage = "This field is required.")] // validator
+        [DataType(DataType.Password)] // se afiseaza format parola
+        [DisplayName("Confirm Password")]
+        [Compare("Password")]
+        
+        public string ConfirmPassword { get; set; }
+
         public string ImagePath { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

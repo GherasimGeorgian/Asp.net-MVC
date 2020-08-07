@@ -21,6 +21,7 @@ namespace LoginSystem.Controllers
         {
             using (LoginDataBaseEntities db = new LoginDataBaseEntities())
             {
+                userModel.ImagePath = "~/Image/logindefault.jpg";
                 if (db.Users.Any(x => x.UserName == userModel.UserName))
                 {
                     ViewBag.DublicateMessage = "Username already exist!";
