@@ -83,19 +83,23 @@
                 </table>
             </div>
         }
-        <table>
-            <tr>
-                <td></td>
-                <td><a href="@Url.Action("Index","Customer")">Customer Page</a></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>  <a href="@Url.Action("LogOutFunction","Login")">LogOut</a></td>
+    <table>
+        <tr>
+            <td></td>
+            <td><a href="@Url.Action("Index","Customer")">Customer Page</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a href="@Url.Action("Index","Product")">Product Page</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>  <a href="@Url.Action("LogOutFunction","Login")">LogOut</a></td>
 
-            </tr>
+        </tr>
 
 
-        </table>
+    </table>
 
         @using (Html.BeginForm("AddImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
