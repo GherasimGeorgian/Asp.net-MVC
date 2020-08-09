@@ -16,5 +16,7 @@ namespace LoginSystem.Models
     {
         public int IdProduct { get; set; }
         public string ProductName { get; set; }
+
+        public bool isChecked { get; set; }
     }
 }

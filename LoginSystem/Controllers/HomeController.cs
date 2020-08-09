@@ -30,6 +30,12 @@ namespace LoginSystem.Controllers
             return View(mainModel);
         }
         [HttpPost]
+        public ActionResult Index(MainPageModel mainModel)
+        {
+            var SelectedProduct = mainModel.stock.ProductCollection.Where(x => x.isChecked == true).ToList<Product>();
+            return Content(String.Join(",",SelectedProduct.Select(x=>x.ProductName)));
+        }
+        [HttpPost]
         public ActionResult AddImage(MainPageModel mainModel, HttpPostedFileBase file)
         {
 
