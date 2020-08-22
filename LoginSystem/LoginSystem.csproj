@@ -112,6 +112,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="GridviewBinding.aspx" />
+    <Content Include="ImageSlide.aspx" />
     <Content Include="Models\LoginDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LoginDataModel.Context.cs</LastGenOutput>
@@ -164,6 +166,20 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GridviewBinding.aspx.cs">
+      <DependentUpon>GridviewBinding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GridviewBinding.aspx.designer.cs">
+      <DependentUpon>GridviewBinding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageSlide.aspx.cs">
+      <DependentUpon>ImageSlide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageSlide.aspx.designer.cs">
+      <DependentUpon>ImageSlide.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginDataModel.Context.cs">
